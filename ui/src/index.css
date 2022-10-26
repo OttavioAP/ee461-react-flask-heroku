@@ -1,0 +1,14 @@
+.joined-project, .joinable-project {
+    width: fit-content;
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+}
+
+.joined-project {
+    background-color: palegreen;
+}
+
+.joinable-project {
+    background-color: lightgrey;
+}
