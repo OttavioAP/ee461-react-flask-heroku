@@ -33,5 +33,11 @@ export class Project extends React.Component {
                 joined: !this.state.joined
             }
         )
+        alert("Hello! I am an alert box!");
     }
+
+ myAlert() {
 }
+
+}
+
