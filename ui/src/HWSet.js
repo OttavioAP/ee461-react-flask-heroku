@@ -1,22 +1,40 @@
 import React from 'react';
 import './index.css';
 import {Button, Stack, TextField} from "@mui/material";
-import { useState } from 'react';
+
+
 
 export class HWSet extends React.Component {
+
+      
+    handleChange = (e) => {
+        console.log('Typed => ${e.target.value}')
+        this.setState(
+        {entered: e.target.value}
+
+        )
+    }
+
     constructor(props) {
         super(props);
         this.state = {
-            quantity: props.current
+            quantity: props.current,
+            entered: 0
         }
+        
     }
-
+   
     render() {
+      
         return (
+
             <Stack spacing={2} direction="row">
                 <p>HWSet{this.props.id}: {this.props.current != null ? this.props.current : 0}/{this.props.capacity != null ? this.props.capacity : 100}</p>
+               
                 <TextField 
                 label="Enter qty" 
+                onChange={this.handleChange}
+                value = {this.state.entered}
                 />
                 <Button onClick={() => this.checkIn()}>Check in</Button>
                 <Button onClick={() => this.checkOut()}>Check out</Button>
@@ -24,26 +42,15 @@ export class HWSet extends React.Component {
         );
     }
 
-/*
-  <TextField
-        value={name}
-        label="Enter your name"
-        onChange={(e) => {
-          setName(e.target.value);
-        }}
-      />
-       */
-    getInput(){
-        //ask evan for help here
-    }
 
 
     checkIn() {
-        alert("checking in " + this.state.quantity + this.props.ID)
-    }
+        alert("checking out "+ this.state.entered + " units for " +this.props.ID)
+    
+        }
 
     checkOut() {
-        alert("checking out " + this.state.quantity + this.props.ID)
+        alert("checking in "+ this.state.entered + " units for " +this.props.ID)
     }
 
 }

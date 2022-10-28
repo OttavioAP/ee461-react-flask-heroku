@@ -19,7 +19,7 @@ export class Project extends React.Component {
                     <p>list, of, authorized, users</p>
                     <Stack spacing={1}>
                         <HWSet current={this.props.initial} ID = {this.props.ID} />
-                        <HWSet />
+                        <HWSet current={this.props.initial} ID = {this.props.ID} />
                     </Stack>
                     <Button onClick={() => this.toggleState()}>{this.state.joined ? "Leave" : "Join"}</Button>
                 </Stack>
@@ -37,12 +37,12 @@ export class Project extends React.Component {
 
         if(this.state.joined){
            /// alert(this.props.ID);
-           alert("Leave " + this.props.ID)
+           alert("Leaving " + this.props.ID)
         }
 
         if(!this.state.joined){
      /// alert(this.props.ID);
-     alert("Joined " + this.props.ID)
+     alert("Joining " + this.props.ID)
         }
     
 
