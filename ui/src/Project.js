@@ -1,7 +1,8 @@
 import React from 'react';
 import './index.css';
-import {Button, Container, Stack} from "@mui/material";
+import {Button, Stack} from "@mui/material";
 import {HWSet} from "./HWSet";
+
 
 export class Project extends React.Component {
     constructor(props) {
@@ -10,6 +11,27 @@ export class Project extends React.Component {
             joined: props.joined
         }
     }
+    //@app.route('/leaveProject/<projectid>')
+    leaveComm() {
+        fetch('/leaveProject/${this.props.ID}').then(response => 
+            response.json()).then(
+                (result) => {
+            const data = this.result.text;
+    
+        //    console.log(data)
+    }
+        )
+    }
+     
+  //start from scratch, write function that connects front end to backend
+            
+    
+//async function?
+
+/*
+change response.json to response.data
+*/
+
 
     render() {
         return(
@@ -21,7 +43,8 @@ export class Project extends React.Component {
                         <HWSet current={this.props.initial} ID = {this.props.ID} />
                         <HWSet current={this.props.initial} ID = {this.props.ID} />
                     </Stack>
-                    <Button onClick={() => this.toggleState()}>{this.state.joined ? "Leave" : "Join"}</Button>
+                    <Button onClick={() => this.toggleState()}>leave </Button>
+                     {/* <Button onClick={() => this.toggleState()}>{this.state.joined ? "Leave" : "Join"}</Button>  */}
                 </Stack>
             </div>
         );
@@ -37,12 +60,21 @@ export class Project extends React.Component {
 
         if(this.state.joined){
            /// alert(this.props.ID);
+            //backend comm here
+           this.leaveComm()
            alert("Leaving " + this.props.ID)
+
+
+
+
         }
 
         if(!this.state.joined){
      /// alert(this.props.ID);
      alert("Joining " + this.props.ID)
+     
+
+
         }
     
 
