@@ -7,6 +7,30 @@ import {Button, Stack, TextField} from "@mui/material";
 export class HWSet extends React.Component {
 
       
+    checkOutComm() {
+        fetch('/checkOut_hardware/${this.props.quantity}').then(response => 
+            response.json()).then(
+                (result) => {
+            const data = this.result.text;
+    
+        //    console.log(data)
+    }
+        )
+
+        
+    }
+
+    checkInComm() {
+        fetch('/checkOUt_hardware/${this.props.quantity}').then(response => 
+            response.json()).then(
+                (result) => {
+            const data = this.result.text;
+    
+        //    console.log(data)
+    }
+        )
+    }
+
     handleChange = (e) => {
         console.log('Typed => ${e.target.value}')
         this.setState(
@@ -45,11 +69,15 @@ export class HWSet extends React.Component {
 
 
     checkIn() {
+        
+        checkIn()
         alert("checking out "+ this.state.entered + " units for " +this.props.ID)
+        
     
         }
 
     checkOut() {
+        checkOut()
         alert("checking in "+ this.state.entered + " units for " +this.props.ID)
     }
 
