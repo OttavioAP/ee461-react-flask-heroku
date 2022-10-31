@@ -21,7 +21,7 @@ export class HWSet extends React.Component {
     }
 
     checkInComm() {
-        fetch('/checkOUt_hardware/${this.props.quantity}').then(response => 
+        fetch('/checkOut_hardware/${this.props.quantity}').then(response => 
             response.json()).then(
                 (result) => {
             const data = this.result.text;
@@ -70,14 +70,14 @@ export class HWSet extends React.Component {
 
     checkIn() {
         
-        checkIn()
+        this.checkIn()
         alert("checking out "+ this.state.entered + " units for " +this.props.ID)
         
     
         }
 
     checkOut() {
-        checkOut()
+       this.checkOut()
         alert("checking in "+ this.state.entered + " units for " +this.props.ID)
     }
 
